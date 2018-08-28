@@ -1,0 +1,21 @@
+{
+  "name": "room-mate-analyze",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "csvtojson": "^2.0.8",
+    "json2csv": "^4.2.1",
+    "lodash": "^4.17.10",
+    "react": "^16.4.2",
+    "react-bootstrap": "^0.32.3",
+    "react-dom": "^16.4.2",
+    "react-file-reader": "^1.1.4",
+    "react-scripts": "1.1.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
