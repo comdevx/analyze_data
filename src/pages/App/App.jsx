@@ -121,13 +121,13 @@ export default class App extends Component {
       <Table striped bordered condensed hover>
         <thead>
           <tr>
-            <th>#</th>
-            <th>name</th>
+            <th className="field-center">#</th>
+            <th className="field-center">name</th>
             {fields && fields.map((val, key) => (
-              <th key={key}>{val}</th>
+              <th key={key} className="field-center">{val[0]}</th>
             ))}
-            <th>compare</th>
-            <th>{groupName}</th>
+            <th className="field-center">compare</th>
+            <th className="field-center">{groupName}</th>
           </tr>
         </thead>
         <tbody>
@@ -173,7 +173,7 @@ const getFields = (docs, fieldSelected) => {
   let result = []
   docs[0].split(',').map((field, index) => {
     const match = new RegExp(fieldSelected, 'g')
-    return field.toLowerCase().match(match) && result.push(index)
+    return field.toLowerCase().match(match) && result.push([field, index])
   })
   return result
 }
@@ -185,7 +185,7 @@ const getData = (data, fields) => {
     let arr2 = []
     arr2.name = arr[0]
     arr2.data = fields.map(val => {
-      return arr[val]
+      return arr[val[1]]
     })
     result.push(arr2)
   }
