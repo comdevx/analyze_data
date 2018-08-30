@@ -19,3 +19,5 @@
 * please enter group amout ใส่จำนวนคนในกลุ่มที่ต้องการ
 * please enter group name ใส่ชื่อกลุ่ม เช่น กลุ่ม หรือ ห้อง
 * please enter field name ฟิลด์นิสัยที่จะให้เปรียบเทียบ เช่น  ฟิลด์นิสัยมี 3 ฟิลด์ ชื่อ like1 like2 like3 ให้คุณใส่ชื่อเข้าไปแค่ like จากนั้นกดปุ่ม Process
+
+\* download .csv ยังใช้ไม่ได้นะ เสาร์ อาทิตย์ว่าง จะทำให้ อิอิ \*
