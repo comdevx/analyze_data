@@ -1,8 +1,8 @@
 /*
  * @Author: comdevx (comdevx@gmail.com) 
  * @Date: 2018-08-29 02:32:36 
- * @Last Modified by: mikey.zhaopeng
- * @Last Modified time: 2018-08-29 02:43:18
+ * @Last Modified by: ComdevX
+ * @Last Modified time: 2018-08-31 00:32:14
  */
 
 import _ from 'lodash'
@@ -64,11 +64,11 @@ export default (data, groupLimit) => {
 }
 
 const checkDuplicate = (data, value) => {
-    for (let i = 0; i < data.length; i++) {
-        const obj = Object.keys(data[i])[0]
+    data.forEach(val => {
+        const obj = Object.keys(val)[0]
         if (value === obj) {
             return false
         }
-    }
+    })
     return true
 }

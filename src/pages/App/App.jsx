@@ -9,7 +9,7 @@ import {
   FormControl,
 } from 'react-bootstrap'
 import ReactFileReader from 'react-file-reader'
-import dataAnalyze from '../../Controllers/dataAnalyze.js'
+import dataAnalyze from '../../libs/dataAnalyze'
 import logo from './logo.svg'
 import './App.css'
 
@@ -50,6 +50,10 @@ export default class App extends Component {
     const obj = getData(data, fields)
     const result = dataAnalyze(obj, groupLimit)
     this.setState({ fields, result })
+  }
+
+  handleButton = () => {
+
   }
 
   render() {
@@ -167,29 +171,23 @@ export default class App extends Component {
 
 const getFields = (docs, fieldSelected) => {
   let result = []
-  docs.forEach((docs2, key) => {
-    if (key === 0) {
-      docs2.split(',').map((field, index) => {
-        const match = new RegExp(fieldSelected, 'g')
-        return field.toLowerCase().match(match) && result.push(index)
-      })
-    }
+  docs[0].split(',').map((field, index) => {
+    const match = new RegExp(fieldSelected, 'g')
+    return field.toLowerCase().match(match) && result.push(index)
   })
   return result
 }
 
 const getData = (data, fields) => {
-  let arr = []
-  data.forEach((docs, index) => {
-    if (index > 0) {
-      const arr2 = docs.split(',')
-      let data = []
-      data.name = arr2[0]
-      data.data = fields.map(val => {
-        return arr2[val]
-      })
-      arr.push(data)
-    }
-  })
-  return arr
+  let result = []
+  for (let i = 1; i < data.length; i++) {
+    const arr = data[i].split(',')
+    let arr2 = []
+    arr2.name = arr[0]
+    arr2.data = fields.map(val => {
+      return arr[val]
+    })
+    result.push(arr2)
+  }
+  return result
 }
